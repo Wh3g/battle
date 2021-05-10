@@ -9,13 +9,13 @@ get '/secret' do
   "Supersport news: Springboks will lose to the Lions very very badly"
 end
 
-get '/football' do
-  "Man Utd stopped Man City from winning the Premier League"
+get '/random-cat' do
+  @name = ["Amigo", "Misty", "Almond"].sample
+  erb(:index)
 end
 
-
-
-get '/cat' do
-  @name_arr = ["Amigo", "Misty", "Almond"].sample
+get '/named-cat' do
+  p params
+  @name = params[:name]
   erb(:index)
 end
