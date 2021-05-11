@@ -9,6 +9,9 @@ group :development do
   gem "sinatra"
   gem "webrick"
   gem "sinatra-contrib"
+  gem "capybara"
+  gem "selenium-webdriver"
+  gem "pry"
 end
 
 # gem "rails"
