@@ -2,7 +2,7 @@ require 'sinatra/base'
 require 'sinatra/reloader'
 require 'capybara'
 require './lib/player'
-require './lib/player'
+require './lib/game'
 
 
 
@@ -33,6 +33,7 @@ class Battle < Sinatra::Base
   get '/attack' do
     @game = $game
     @game.attack(@game.player_2)
+    @game.switch_turn
     erb(:attack)
   end
 
