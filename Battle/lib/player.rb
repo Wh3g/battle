@@ -5,11 +5,7 @@ class Player
     @name = name
     @hit_points = hit_points
   end
-
-  def attack(player)
-    player.damage
-  end
-
+  
   def damage
     @hit_points -= 10
   end

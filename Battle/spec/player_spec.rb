@@ -1,3 +1,5 @@
+require 'player'
+
 describe Player do
   subject(:player_1) {Player.new("John")}
   subject(:player_2) {Player.new("James")}
@@ -9,12 +11,6 @@ describe Player do
   describe "#hit_points" do
     it "returns the hit points" do
       expect(player_1.hit_points).to eq Player::DEFAULT_HIT_POINTS
-    end
-  end
-  describe "#attack" do
-    it "attacks another player" do
-      expect(player_2).to receive(:damage)
-      player_1.attack(player_2)
     end
   end
   describe "#damage" do
