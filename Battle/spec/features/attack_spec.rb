@@ -12,4 +12,12 @@ feature "attack" do
     expect(page).not_to have_content "James: 100hp"
     expect(page).to have_content "James: 90hp"
   end
+
+  scenario "attack player_1" do
+    sign_in_and_play
+    click_button "Attack"
+    click_link "OK"
+    click_button "Attack"
+    expect(page).to have_content "James attacked John"
+  end
 end

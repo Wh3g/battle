@@ -27,13 +27,13 @@ class Battle < Sinatra::Base
 
   get '/play' do
     @game = $game
+    @game.switch_turn unless (@game.player_1.hit_points == 100 && @game.player_2.hit_points == 100)
     erb(:play)
   end
 
   get '/attack' do
     @game = $game
     @game.attack(@game.player_2)
-    @game.switch_turn
     erb(:attack)
   end
 

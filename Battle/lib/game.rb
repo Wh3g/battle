@@ -11,10 +11,12 @@ class Game
   end
 
   def switch_turn
-    if @current_turn == @player_1
-      @current_turn = @player_2
-    else
-      @current_turn = @player_1
-    end
+    @current_turn = opponent
   end
+
+  def opponent
+    @current_turn == @player_1 ? player_2 : player_1
+  end
+
 end
+
