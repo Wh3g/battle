@@ -27,6 +27,7 @@ class Battle < Sinatra::Base
 
   get '/play' do
     @game = $game
+    redirect '/win' if (@game.player_1.hit_points == 0 || @game.player_2.hit_points == 0)
     @game.switch_turn unless (@game.player_1.hit_points == 100 && @game.player_2.hit_points == 100)
     erb(:play)
   end
@@ -35,6 +36,11 @@ class Battle < Sinatra::Base
     @game = $game
     @game.attack(@game.opponent)
     erb(:attack)
+  end
+
+  get '/win' do
+    @game = $game
+    erb(:win)
   end
 
   run! if app_file == $0

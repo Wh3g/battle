@@ -7,26 +7,21 @@ feature "attack" do
 
   scenario "reduce player 2 hp by 10" do
     sign_in_and_play
-    click_button "Attack"
-    click_link "OK"
+    attack_ok
     expect(page).not_to have_content "James: 100hp"
     expect(page).to have_content "James: 90hp"
   end
 
   scenario "attack player_1" do
     sign_in_and_play
-    click_button "Attack"
-    click_link "OK"
+    attack_ok
     click_button "Attack"
     expect(page).to have_content "James attacked John"
   end
 
   scenario "reduce player 1 hp by 10" do
     sign_in_and_play
-    click_button "Attack"
-    click_link "OK"
-    click_button "Attack"
-    click_link "OK"
+    2.times {  attack_ok }
     expect(page).not_to have_content "John: 100hp"
     expect(page).to have_content "John: 90hp"
   end
